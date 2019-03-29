@@ -1,0 +1,14 @@
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\bin\Debug\netcoreapp2.2\Comptes-WebAPI.deps.json
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\bin\Debug\netcoreapp2.2\Comptes-WebAPI.runtimeconfig.json
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\bin\Debug\netcoreapp2.2\Comptes-WebAPI.runtimeconfig.dev.json
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\bin\Debug\netcoreapp2.2\Comptes-WebAPI.dll
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\bin\Debug\netcoreapp2.2\Comptes-WebAPI.pdb
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.csprojAssemblyReference.cache
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.RazorAssemblyInfo.cache
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.RazorAssemblyInfo.cs
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.AssemblyInfoInputs.cache
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.AssemblyInfo.cs
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.dll
+C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Debug\netcoreapp2.2\Comptes-WebAPI.pdb

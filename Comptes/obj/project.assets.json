@@ -13038,11 +13038,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Soufiane\\Desktop\\Comptes\\Comptes\\Comptes\\Comptes.csproj",
+      "projectUniqueName": "C:\\Users\\Soufiane\\Desktop\\Comptes\\Comptes\\Comptes.csproj",
       "projectName": "Comptes",
-      "projectPath": "C:\\Users\\Soufiane\\Desktop\\Comptes\\Comptes\\Comptes\\Comptes.csproj",
+      "projectPath": "C:\\Users\\Soufiane\\Desktop\\Comptes\\Comptes\\Comptes.csproj",
       "packagesPath": "C:\\Users\\Soufiane\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Soufiane\\Desktop\\Comptes\\Comptes\\Comptes\\obj\\",
+      "outputPath": "C:\\Users\\Soufiane\\Desktop\\Comptes\\Comptes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
