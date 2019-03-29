@@ -1,4 +1,5 @@
-﻿
+﻿@using Comptes_WebAPI.Models
+@model RegisterAccountViewModel
 @{
     ViewData["Title"] = "Create Account";
 }
@@ -14,28 +15,28 @@
         <div class="card-body">
             <form asp-action="Create" method="post">
                 <div class="form-group">
-                    <label>Name</label>
-                    <input required class="form-control" />
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" required class="form-control" />
                 </div>
 
                 <div class="form-group">
-                    <label>Username</label>
-                    <input required class="form-control" />
+                    <label asp-for="Username"></label>
+                    <input asp-for="Username" required class="form-control" />
                 </div>
 
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" required class="form-control" />
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" type="email" required class="form-control" />
                 </div>
 
                 <div class="form-group">
-                    <label>Password</label>
-                    <input id="password" required type="password" class="form-control" />
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" id="password" required type="password" class="form-control" />
                 </div>
 
                 <div class="form-group">
-                    <label>Repeat Password</label>
-                    <input id="confirm_password" class="form-control" type="password" />
+                    <label asp-for="RepeatPassword"></label>
+                    <input asp-for="RepeatPassword" id="confirm_password" class="form-control" type="password" />
                     <span id='message'></span>
                 </div>
 

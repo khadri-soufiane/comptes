@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
+using System.Threading;
 using System.Threading.Tasks;
 using Comptes_WebAPI.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -80,34 +82,15 @@ namespace Comptes_WebAPI.Repository
             return null;
         }
 
-        public async Task LogIn(Account account, HttpContext httpContext)
+        public async Task LogIn(Account account )
         {
-            var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.Name, account.Username));
-
-
-            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-            try
-            {
-                await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
-            }
-            catch (Exception ex)
-            {
-
-            }
-
+            
 
             account.LastLoginDateTime = DateTime.Now;
             _db.Update(account);
             await _db.SaveChangesAsync();
         }
 
-
-        public async Task LogOut(HttpContext httpContext)
-        {
-            await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        }
 
         public async Task<int> RemoveAccount(int? accountId)
         {

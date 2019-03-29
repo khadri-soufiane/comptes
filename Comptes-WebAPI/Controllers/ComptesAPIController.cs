@@ -154,7 +154,7 @@ namespace Comptes_WebAPI.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> Login(LoginAccountViewModel model)
+        public async Task<IActionResult> Login([FromBody]LoginAccountViewModel model)
         {
             var targetAccount = accountRepository.GetByUserName(model.Username);
 
@@ -170,27 +170,17 @@ namespace Comptes_WebAPI.Controllers
             {
                 return BadRequest("Mot de passe incorrect.");
             }
-            HttpContext httpcontext = this.HttpContext;
 
-            await accountRepository.LogIn(targetAccount, httpcontext);
-            return Ok("Login OK");
+            await accountRepository.LogIn(targetAccount);
+
+            LoginAccountViewModel dd = new LoginAccountViewModel();
+            dd.Username = model.Username;
+            dd.Password = model.Password;
+
+            return Ok(dd);
         }
 
-        [HttpGet]
-        [Route("Logout")]
-        public async Task<IActionResult> Logout()
-        {
-            try
-            {
-                await accountRepository.LogOut(this.HttpContext);
-                return Ok();
-            }
-            catch (Exception)
-            {
-                return BadRequest();
-            }
-
-        }
+        
 
         [HttpGet]
         [Route("PasswordRecovery")]

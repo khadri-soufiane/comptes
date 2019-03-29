@@ -1,4 +1,5 @@
-﻿
+﻿@using Comptes_WebAPI.Models
+@model LoginAccountViewModel
 @{
     ViewData["Title"] = "Login Page";
 }
@@ -12,12 +13,12 @@
         <div class="card-body">
             <form asp-action="Login" method="post">
                 <div class="form-group">
-                    <label>Username</label>
-                    <input required class="form-control" />
+                    <label asp-for="Username"></label>
+                    <input asp-for="Username" required class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    <input required class="form-control" type="password" />
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" required class="form-control" type="password" />
                 </div>
 
                 <div class="form-group">
@@ -33,15 +34,15 @@
     <script src='https://www.google.com/recaptcha/api.js' async defer type="text/javascript"></script>
 
     <script>
-        $("form").submit(function (event) {
+        //$("form").submit(function (event) {
 
-            var recaptcha = $("#g-recaptcha-response").val();
-            if (recaptcha === "") {
-                event.preventDefault();
-                $('#message-captcha').html('Please check the Captcha').css('color', 'red');
-                //alert("Please check the recaptcha");
-            }
-        });
+        //    var recaptcha = $("#g-recaptcha-response").val();
+        //    if (recaptcha === "") {
+        //        event.preventDefault();
+        //        $('#message-captcha').html('Please check the Captcha').css('color', 'red');
+        //        //alert("Please check the recaptcha");
+        //    }
+        //});
     </script>
 </div>
 

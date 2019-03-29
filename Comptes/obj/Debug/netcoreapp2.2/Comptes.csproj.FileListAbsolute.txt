@@ -64,3 +64,5 @@ C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Comptes.Views.
 C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Comptes.dll
 C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Comptes.pdb
 C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Comptes.csproj.CopyComplete
+C:\Users\Soufiane\Desktop\Comptes\Comptes\bin\Debug\netcoreapp2.2\Comptes-WebAPI.dll
+C:\Users\Soufiane\Desktop\Comptes\Comptes\bin\Debug\netcoreapp2.2\Comptes-WebAPI.pdb

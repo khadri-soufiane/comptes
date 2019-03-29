@@ -4720,6 +4720,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "Comptes-WebAPI/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0"
+        },
+        "compile": {
+          "bin/placeholder/Comptes-WebAPI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Comptes-WebAPI.dll": {}
+        }
       }
     }
   },
@@ -13021,10 +13034,16 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "Comptes-WebAPI/1.0.0": {
+      "type": "project",
+      "path": "../Comptes-WebAPI/Comptes-WebAPI.csproj",
+      "msbuildProject": "../Comptes-WebAPI/Comptes-WebAPI.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "Comptes-WebAPI >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
@@ -13060,7 +13079,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Soufiane\\Desktop\\Comptes\\Comptes-WebAPI\\Comptes-WebAPI.csproj": {
+              "projectPath": "C:\\Users\\Soufiane\\Desktop\\Comptes\\Comptes-WebAPI\\Comptes-WebAPI.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

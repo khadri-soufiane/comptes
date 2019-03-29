@@ -21,8 +21,7 @@ namespace Comptes_WebAPI.Repository
 
         Task<int> RemoveAccount(int? accountId);
 
-        Task LogIn(Account account, HttpContext httpContext);
+        Task LogIn(Account account) ;
 
-        Task LogOut(HttpContext httpContext);
     }
 }

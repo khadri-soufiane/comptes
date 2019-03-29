@@ -24,7 +24,7 @@ namespace Comptes_WebAPI.Models
         [DisplayName("Password"), Required]
         public string Password { get; set; }
 
-        [DisplayName("Repeat Password"), Required]
+        [DisplayName("Confirm Password"), Required]
         public string RepeatPassword { get; set; }
 
         
