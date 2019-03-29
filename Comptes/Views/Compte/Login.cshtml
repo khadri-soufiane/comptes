@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<div class="container col-6" style="margin-top:10px;">
+    <div class="card border-secondary">
+        <div class="card-header text-white bg-secondary">
+            <strong>Login</strong>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Login" method="post">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input required class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input required class="form-control" type="password" />
+                </div>
+
+                <div class="form-group">
+                    <div required class="g-recaptcha" data-sitekey="6LfFtJoUAAAAAJr_Sa2aadi9-uzzBIK5RdlFCiNf"></div>
+                    <span id='message-captcha'></span>
+                </div>
+
+                <input value="Log In" type="submit" class="btn btn-sm btn-outline-primary float-right" />
+            </form>
+        </div>
+    </div>
+
+    <script src='https://www.google.com/recaptcha/api.js' async defer type="text/javascript"></script>
+
+    <script>
+        $("form").submit(function (event) {
+
+            var recaptcha = $("#g-recaptcha-response").val();
+            if (recaptcha === "") {
+                event.preventDefault();
+                $('#message-captcha').html('Please check the Captcha').css('color', 'red');
+                //alert("Please check the recaptcha");
+            }
+        });
+    </script>
+</div>
+

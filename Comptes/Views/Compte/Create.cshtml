@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+@*<h2>Register New User</h2>*@
+
+<div class="container col-6" style="height:700px">
+    <h2 style="margin-top:20px">Create New Account</h2>
+    <div class="card" style="margin-top:20px">
+        <div class="card-header text-white bg-secondary">
+            Regestring a new Account
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input required class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input required class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input id="password" required type="password" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Repeat Password</label>
+                    <input id="confirm_password" class="form-control" type="password" />
+                    <span id='message'></span>
+                </div>
+
+                <div class="form-group">
+                    <div required class="g-recaptcha" data-sitekey="6LfFtJoUAAAAAJr_Sa2aadi9-uzzBIK5RdlFCiNf"></div>
+                    <span id='message-captcha'></span>
+                </div>
+
+
+
+                <input class="btn btn-success float-right" value="Register" type="submit" />
+            </form>
+        </div>
+    </div>
+    <script src='https://www.google.com/recaptcha/api.js' async defer type="text/javascript"></script>
+
+    <script>
+        $("form").submit(function (event) {
+
+            var recaptcha = $("#g-recaptcha-response").val();
+            if (recaptcha === "") {
+                event.preventDefault();
+                $('#message-captcha').html('Please check the Captcha').css('color', 'red');
+                //alert("Please check the recaptcha");
+            }
+        });
+    </script>
+    <script>
+
+
+
+
+        $('#password, #confirm_password').on('keyup', function () {
+            if ($('#password').val() == $('#confirm_password').val()) {
+                $('#message').html('').css('color', 'green');
+                //$('#message').hide;
+            } else {
+                $('#message').html('Not Matching').css('color', 'red');
+                //$('#message').show();
+            }
+
+        });
+    </script>
+</div>
