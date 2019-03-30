@@ -34,15 +34,14 @@
     <script src='https://www.google.com/recaptcha/api.js' async defer type="text/javascript"></script>
 
     <script>
-        //$("form").submit(function (event) {
+        $("form").submit(function (event) {
 
-        //    var recaptcha = $("#g-recaptcha-response").val();
-        //    if (recaptcha === "") {
-        //        event.preventDefault();
-        //        $('#message-captcha').html('Please check the Captcha').css('color', 'red');
-        //        //alert("Please check the recaptcha");
-        //    }
-        //});
+            var recaptcha = $("#g-recaptcha-response").val();
+            if (recaptcha === "") {
+                event.preventDefault();
+                $('#message-captcha').html('Please check the Captcha').css('color', 'red');
+            }
+        });
     </script>
 </div>
 

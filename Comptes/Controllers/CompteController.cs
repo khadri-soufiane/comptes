@@ -67,6 +67,21 @@ namespace Comptes.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetByUsername(string username)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.PostAsJsonAsync("api/ComptesAPI/GetByUsername", username);
+
+            if (response.IsSuccessStatusCode)
+            {
+                
+            }
+
+            return BadRequest();
+        }
+
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
@@ -107,6 +122,40 @@ namespace Comptes.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Detail(string username)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.GetAsync("api/ComptesAPI/GetByUsername/"+username);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                var account =  JsonConvert.DeserializeObject<Account>(data);
+                return View(account);
+            }
+            return BadRequest();
+            
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.GetAsync("api/ComptesAPI/GetById/" + id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                var account = JsonConvert.DeserializeObject<Account>(data);
+                return View(account);
+            }
+            return BadRequest();
+
         }
 
     }

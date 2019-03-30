@@ -40,7 +40,7 @@ namespace Comptes
                 option.LoginPath = "/Compte/Login";
                 option.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 
-                
+
             });
             services.AddHttpContextAccessor();
         }
@@ -76,3 +76,4 @@ namespace Comptes
         }
     }
 }
+

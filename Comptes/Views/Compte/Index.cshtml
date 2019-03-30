@@ -28,7 +28,9 @@
                 {
                     <tr>
                         <td>@account.Name</td>
-                        <td>@account.Username</td>
+                        <td>
+                            <a asp-action="Detail" asp-route-username="@account.Username">@account.Username</a>
+                        </td>
                         <td>@account.Email</td>
                         <td>@account.RegistrationDateTime.ToShortDateString()</td>
                         <td>@account.LastLoginDateTime.ToShortDateString()</td>

@@ -1,0 +1,17 @@
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\CompteXunitTests.deps.json
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\CompteXunitTests.runtimeconfig.json
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\CompteXunitTests.runtimeconfig.dev.json
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\CompteXunitTests.dll
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\Comptes-WebAPI.dll
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\Comptes-WebAPI.pdb
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\obj\Debug\netcoreapp2.2\CompteXunitTests.csprojAssemblyReference.cache
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\obj\Debug\netcoreapp2.2\CompteXunitTests.csproj.CoreCompileInputs.cache
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\obj\Debug\netcoreapp2.2\CompteXunitTests.AssemblyInfoInputs.cache
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\obj\Debug\netcoreapp2.2\CompteXunitTests.AssemblyInfo.cs
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\obj\Debug\netcoreapp2.2\CompteXunitTests.csproj.CopyComplete
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\bin\Debug\netcoreapp2.2\CompteXunitTests.pdb
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\obj\Debug\netcoreapp2.2\CompteXunitTests.dll
+C:\Users\Soufiane\Desktop\Comptes\CompteXunitTests\obj\Debug\netcoreapp2.2\CompteXunitTests.pdb

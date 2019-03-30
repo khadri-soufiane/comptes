@@ -15,6 +15,11 @@ namespace Comptes_WebAPI.Models
 
         }
 
+        public AccountContext()
+        {
+
+        }
+
         public DbSet<Account> Accounts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

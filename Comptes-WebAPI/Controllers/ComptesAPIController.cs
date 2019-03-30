@@ -19,6 +19,7 @@ namespace Comptes_WebAPI.Controllers
         {
             accountRepository = _accountRepository;
         }
+        
 
 
         [HttpGet]
@@ -54,7 +55,33 @@ namespace Comptes_WebAPI.Controllers
             {
                 var account = await accountRepository.GetById(accountId);
 
-                if (accountId == null)
+                if (account == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(account);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [Route("GetByUsername/{username}")]
+        public IActionResult GetByUsername(string username)
+        {
+            if (username == null)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+                var account = accountRepository.GetByUserName(username);
+
+                if (account == null)
                 {
                     return NotFound();
                 }
@@ -115,7 +142,7 @@ namespace Comptes_WebAPI.Controllers
             var targetAccount = accountRepository.GetByUserName(model.UserName);
             if (targetAccount == null)
             {
-                return BadRequest("Le compte n'existe pas.");
+                return NotFound("Le compte n'existe pas.");
             }
 
             if (!string.IsNullOrWhiteSpace(model.NewPassword))

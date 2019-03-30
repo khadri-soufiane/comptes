@@ -32,8 +32,8 @@
                 else
                 {
                     <div class="btn-group btn-group-sm">
-                        <a class="btn btn-secondary btn-info" asp-controller="Compte" asp-action="Detail" asp-route-name="@User.Identity.Name">
-                            My Account
+                        <a class="btn btn-secondary btn-info" asp-action="Detail" asp-route-username="@User.Identity.Name">
+                            @User.Identity.Name
                         </a>
                         <a class="btn btn-secondary btn-info" asp-controller="Compte" asp-action="LogOut">Se déconnecter</a>
                     </div>
