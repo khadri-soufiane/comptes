@@ -14,5 +14,6 @@ namespace Comptes_WebAPI.Models
         public string PasswordHash { get; set; }
         public DateTime RegistrationDateTime { get; set; }
         public DateTime LastLoginDateTime { get; set; }
+        public string RecoveryCode { get; set; }
     }
 }

@@ -32,6 +32,8 @@ namespace Comptes_WebAPI.Models
         [DisplayName("Last Login Date")]
         public DateTime LastLogin { get; set; }
 
+        public string RecoveryCode { get; set; }
+
         public static EditAccountViewModel FromUser(Account account)
         {
             var model = new EditAccountViewModel();

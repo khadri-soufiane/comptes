@@ -1,0 +1,72 @@
+﻿@using Comptes_WebAPI.Models
+@model Account
+
+<div class="container col-6" style="margin-top:10px;">
+    <div class="card border-secondary">
+        <div class="card-header text-white bg-secondary">
+            <strong>Account Detail Information</strong>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-hover table-striped table-bordered">
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+
+                <tr>
+                    <td><strong>ID</strong></td>
+                    <td>@Model.Id</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td>@Model.Name</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Username</strong></td>
+                    <td>@Model.Username</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Email</strong></td>
+                    <td>@Model.Email</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Registration Date</strong></td>
+                    <td>@Model.RegistrationDateTime.ToShortDateString()</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Last Login</strong></td>
+                    <td>@Model.LastLoginDateTime.ToShortDateString()</td>
+                </tr>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <tr>
+                        <td><strong>Operations</strong></td>
+                        <td>
+                            @if (ViewData["Mode"] == "ShowingDetail")
+                            {
+                                <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Update</a>
+                                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+
+                                if (User.Identity.Name == Model.Username)
+                                {
+                                    <a class="btn btn-sm btn-primary" asp-action="ResetPass" asp-route-id="@Model.Id">Reset Password</a>
+                                }
+                            }
+                            @if (ViewData["Mode"] == "ConfirmingDelete")
+                            {
+                                <input type="submit" class="btn btn-sm btn-danger" value="Confirm" />
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

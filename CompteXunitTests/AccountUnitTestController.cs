@@ -211,6 +211,7 @@ namespace CompteXunitTests
             var result = okResult.Value.Should().BeAssignableTo<Account>().Subject;
 
             var account = new EditAccountViewModel();
+            account.Id = accountId;
             account.Name = "Update Test Name";
             account.UserName = result.Username;
             account.NewPassword = "test";
@@ -237,6 +238,7 @@ namespace CompteXunitTests
             var result = okResult.Value.Should().BeAssignableTo<Account>().Subject;
 
             var account = new EditAccountViewModel();
+            account.Id = accountId;
             account.Name = "Update Test Name";
             account.UserName = result.Username;
             account.NewPassword = "test";
@@ -336,7 +338,7 @@ namespace CompteXunitTests
             var account = new LoginAccountViewModel()
             {
                 Username = "wbakkali",
-                Password = "1234",
+                Password = "12",
             };
 
             //Act  

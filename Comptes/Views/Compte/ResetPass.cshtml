@@ -1,7 +1,7 @@
 ﻿@using Comptes_WebAPI.Models
-@model LoginAccountViewModel
+@model ResetPasswordViewModel
 @{
-    ViewData["Title"] = "Login Page";
+    ViewData["Title"] = "Password Recover";
 }
 
 <div class="container col-6" style="margin-top:10px;">
@@ -11,14 +11,26 @@
         </div>
 
         <div class="card-body">
-            <form asp-action="Login" method="post">
+            <form asp-action="ResetPass" method="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="Username" />
                 <div class="form-group">
                     <label asp-for="Username"></label>
-                    <input asp-for="Username" required class="form-control" />
+                    <input asp-for="Username" disabled class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" required class="form-control" type="password" />
+                    <label asp-for="CurrentPassword"></label>
+                    <input asp-for="CurrentPassword" required class="form-control" type="password" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NewPassword"></label>
+                    <input asp-for="NewPassword" required class="form-control" type="password" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" required class="form-control" type="password" />
                 </div>
 
                 <div class="form-group">
@@ -26,8 +38,7 @@
                     <span id='message-captcha'></span>
                 </div>
 
-                <a asp-action="PasswordRecovery">Mot de passe oublié</a>
-                <input value="Log In" type="submit" class="btn btn-sm btn-outline-primary float-right" />
+                <input value="Reset" type="submit" class="btn btn-sm btn-outline-primary float-right" />
             </form>
         </div>
     </div>
@@ -45,4 +56,6 @@
         });
     </script>
 </div>
+
+
 

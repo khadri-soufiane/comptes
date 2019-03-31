@@ -23,5 +23,11 @@ namespace Comptes_WebAPI.Repository
 
         Task LogIn(Account account) ;
 
+        Task<Account> ResetPassword(Account account);
+
+        Account GetByUserRecoveryCode(string code);
+
+        void DestroyRecoveryCode(Account account);
+
     }
 }

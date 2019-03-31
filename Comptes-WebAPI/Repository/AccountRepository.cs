@@ -83,6 +83,30 @@ namespace Comptes_WebAPI.Repository
             return null;
         }
 
+        public Account GetByUserRecoveryCode(string code)
+        {
+            if (_db != null)
+            {
+                try
+                {
+                    var account = _db.Accounts.FirstOrDefault(a => a.RecoveryCode == code);
+                    if (account != null)
+                    {
+                        return account;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+
+
+            }
+
+            return null;
+        }
+
         public async Task LogIn(Account account )
         {
             
@@ -112,6 +136,18 @@ namespace Comptes_WebAPI.Repository
             return result;
         }
 
+        public async Task<Account> ResetPassword(Account account)
+        {
+            if (_db !=null)
+            {
+                _db.Accounts.Update(account);
+                await _db.SaveChangesAsync();
+                return account;
+            }
+
+            return null;
+        }
+
         public async Task<Account> UpdateAccount(Account account)
         {
             try
@@ -133,6 +169,16 @@ namespace Comptes_WebAPI.Repository
             return null;
 
 
+        }
+
+        public void DestroyRecoveryCode(Account account)
+        {
+            if(_db != null)
+            {
+                account.RecoveryCode = null;
+                _db.Accounts.Update(account);
+                _db.SaveChangesAsync();
+            }
         }
     }
 }

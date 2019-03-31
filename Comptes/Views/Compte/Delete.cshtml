@@ -1,0 +1,14 @@
+﻿@using Comptes_WebAPI.Models
+@model Account
+@{
+    ViewBag.Title = "Delete Account";
+    ViewData["Mode"] = "ConfirmingDelete";
+}
+
+
+<h2 class="text-danger"> Warning: Account [@Model.Username] will be deleted!</h2>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="@Model.Id" />
+    @Html.Partial("_AccountDetailPartial", Model)
+</form>

@@ -1,65 +1,8 @@
 ﻿@using Comptes_WebAPI.Models
 @model Account
 @{
-    ViewData["Title"] = "Account Detail";
+    ViewBag.Title = "Forum Detail";
+    ViewData["Mode"] = "ShowingDetail";
 }
 
-<div class="container col-6" style="margin-top:10px;">
-    <div class="card border-secondary">
-        <div class="card-header text-white bg-secondary">
-            <strong>@Model.Name  Details</strong>
-        </div>
-
-        <div class="card-body">
-            <table class="table-bordered table table-hover table-striped">
-                <tr>
-                    <th>Property</th>
-                    <th>Value</th>
-                </tr>
-
-                <tr>
-                    <td><strong>ID</strong></td>
-                    <td>@Model.Id</td>
-                </tr>
-
-                <tr>
-                    <td><strong>Name</strong></td>
-                    <td>@Model.Name</td>
-                </tr>
-
-                <tr>
-                    <td><strong>Username</strong></td>
-                    <td>@Model.Username</td>
-                </tr>
-
-                <tr>
-                    <td><strong>Email</strong></td>
-                    <td>@Model.Email</td>
-                </tr>
-
-                <tr>
-                    <td><strong>Registration Date</strong></td>
-                    <td>@Model.RegistrationDateTime.ToShortDateString()</td>
-                </tr>
-
-                <tr>
-                    <td><strong>Last Login</strong></td>
-                    <td>@Model.LastLoginDateTime.ToShortDateString()</td>
-                </tr>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <tr>
-                        <td><strong>Operations</strong></td>
-                        <td>
-                            <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Update</a>
-                            <a class="btn btn-sm btn-danger" asp-action="Delete"  asp-route-id="@Model.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-
-
-            </table>
-        </div>
-    </div>
-</div>
-
+@Html.Partial("_AccountDetailPartial", Model)

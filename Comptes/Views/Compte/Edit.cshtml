@@ -1,7 +1,79 @@
-﻿
+﻿@using Comptes_WebAPI.Models
+@model EditAccountViewModel
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Account";
 }
 
-<h1>Edit</h1>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="RegistrationDate" />
+    <input type="hidden" asp-for="LastLogin" />
+
+    <div class="container col-6" style="margin-top:10px;">
+        <div class="card border-secondary">
+            <div class="card-header text-white bg-secondary">
+                <strong>Modifier les informations du compte: [@Model.UserName]</strong>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-hover table-striped table-bordered">
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+
+                    <tr>
+                        <td><strong>ID</strong></td>
+                        <td>@Model.Id</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td>
+                            <input class="form-control" asp-for="@Model.Name" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Username</strong></td>
+                        <td>
+                            <input class="form-control" asp-for="@Model.UserName" />  
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Registration Date</strong></td>
+                        <td>@Model.RegistrationDate</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Last Login</strong></td>
+                        <td>@Model.LastLogin</td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>New Password</strong></td>
+                        <td>
+                            <input type="password" class="form-control" asp-for="NewPassword" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Repeat New Password</strong></td>
+                        <td><input type="password" class="form-control" asp-for="NewPasswordAgain" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Operations</strong></td>
+                        <td>
+                            <input type="submit" class="btn btn-sm btn-success" value="Update" />
+                            <a class="btn btn-sm btn-warning" asp-action="Detail" asp-route-username="@Model.UserName">Cancel</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
 

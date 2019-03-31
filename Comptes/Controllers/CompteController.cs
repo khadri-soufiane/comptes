@@ -152,8 +152,182 @@ namespace Comptes.Controllers
             {
                 var data = await response.Content.ReadAsStringAsync();
                 var account = JsonConvert.DeserializeObject<Account>(data);
+                EditAccountViewModel editModel = new EditAccountViewModel
+                {
+                    Id = account.Id,
+                    Name = account.Name,
+                    UserName = account.Username,
+                    RegistrationDate = account.RegistrationDateTime,
+                    LastLogin = account.LastLoginDateTime,
+                };
+                return View(editModel);
+            }
+            return BadRequest();
+
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditAccountViewModel model)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.PutAsJsonAsync("api/ComptesAPI/UpdateAccount", model);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Detail", new { username = model.UserName });
+            }
+            return BadRequest();
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.GetAsync("api/ComptesAPI/GetById/" + id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                var account = JsonConvert.DeserializeObject<Account>(data);
                 return View(account);
             }
+
+            return BadRequest();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Account model)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.GetAsync("api/ComptesAPI/GetById/" + model.Id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                var account = JsonConvert.DeserializeObject<Account>(data);
+                if (account == null)
+                {
+                    return BadRequest("Le compte n'existe pas.");
+                }
+                //client = _client.Initiale();
+                //client.DefaultRequestHeaders.Accept.Clear();
+                var responseDelete = await client.DeleteAsync("api/ComptesAPI/Delete/" + model.Id);
+                if (responseDelete.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+            return BadRequest();
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> ResetPass(int id)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.GetAsync("api/ComptesAPI/GetById/" + id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                var targetAccount = JsonConvert.DeserializeObject<Account>(data);
+                var account = new ResetPasswordViewModel
+                {
+                    Id = targetAccount.Id,
+                    Username = targetAccount.Username,
+                };
+                return View(account);
+            }
+
+            return BadRequest();
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPass(ResetPasswordViewModel model)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.GetAsync("api/ComptesAPI/GetById/" + model.Id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                var targetAccount = JsonConvert.DeserializeObject<Account>(data);
+                var account = new ResetPasswordViewModel
+                {
+                    Id = targetAccount.Id,
+                    Username = targetAccount.Username,
+                    CurrentPassword=model.CurrentPassword,
+                    NewPassword = model.NewPassword,
+                    ConfirmPassword = model.ConfirmPassword,
+                };
+
+                var responseDelete = await client.PutAsJsonAsync("api/ComptesAPI/ResetPassword/" , account);
+                if (responseDelete.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Detail", new { username = account.Username });
+                }
+
+
+                return View(account);
+            }
+
+            return BadRequest();
+
+        }
+
+        [HttpGet]
+        public IActionResult PasswordRecovery()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PasswordRecovery(Account acc)
+        {
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.GetAsync("api/ComptesAPI/PasswordRecovery/" + acc.Username);
+
+            if (response.IsSuccessStatusCode)
+            {
+                //var data = await response.Content.ReadAsStringAsync();
+                //var targetAccount = JsonConvert.DeserializeObject<Account>(data);
+                return RedirectToAction("PasswordRecoveryPage");
+            }
+            return BadRequest();
+            
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> PasswordRecoveryPage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PasswordRecoveryPage(EditAccountViewModel acc)
+        {
+
+            HttpClient client = _client.Initiale();
+            client.DefaultRequestHeaders.Accept.Clear();
+            var response = await client.PostAsJsonAsync("api/ComptesAPI/PasswordRecoveryPage", acc);
+
+            if (response.IsSuccessStatusCode)
+            {
+                //var data = await response.Content.ReadAsStringAsync();
+                //var targetAccount = JsonConvert.DeserializeObject<Account>(data);
+                return RedirectToAction("login");
+            }
+
             return BadRequest();
 
         }

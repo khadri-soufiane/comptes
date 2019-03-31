@@ -68,3 +68,8 @@ C:\Users\Soufiane\Desktop\Comptes\Comptes\bin\Debug\netcoreapp2.2\Comptes-WebAPI
 C:\Users\Soufiane\Desktop\Comptes\Comptes\bin\Debug\netcoreapp2.2\Comptes-WebAPI.pdb
 C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Razor\Views\Compte\Detail.g.cshtml.cs
 C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Razor\Views\Compte\Edit.g.cshtml.cs
+C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AccountDetailPartial.g.cshtml.cs
+C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Razor\Views\Compte\Delete.g.cshtml.cs
+C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Razor\Views\Compte\ResetPass.g.cshtml.cs
+C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Razor\Views\Compte\PasswordRecovery.g.cshtml.cs
+C:\Users\Soufiane\Desktop\Comptes\Comptes\obj\Debug\netcoreapp2.2\Razor\Views\Compte\PasswordRecoveryPage.g.cshtml.cs
