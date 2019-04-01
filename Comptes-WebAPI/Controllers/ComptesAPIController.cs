@@ -269,7 +269,7 @@ namespace Comptes_WebAPI.Controllers
 
             if (targetAccount == null)
             {
-                return BadRequest("Le compte n'existe pas.");
+                return NotFound();
             }
 
             string key = RandomString(20);

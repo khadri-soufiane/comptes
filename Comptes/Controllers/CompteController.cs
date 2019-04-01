@@ -27,7 +27,7 @@ namespace Comptes.Controllers
             List<Account> Accounts = new List<Account>();
             HttpClient client = _client.Initiale();
 
-            HttpResponseMessage res = await client.GetAsync("api/ComptesAPI/GetAccounts");
+            HttpResponseMessage res = await client.GetAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/GetAccounts");
 
             if (res.IsSuccessStatusCode)
             {
@@ -49,14 +49,14 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.PostAsJsonAsync("api/ComptesAPI/AddAccount", model);
+            var response = await client.PostAsJsonAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/AddAccount", model);
 
             if (response.IsSuccessStatusCode)
             {
                 LoginAccountViewModel loginModel = new LoginAccountViewModel();
                 loginModel.Username = model.Username;
                 loginModel.Password = model.Password;
-                response = await client.PostAsJsonAsync("api/ComptesAPI/Login", loginModel);
+                response = await client.PostAsJsonAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/Login", loginModel);
                 if (response.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index");
@@ -71,7 +71,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.PostAsJsonAsync("api/ComptesAPI/GetByUsername", username);
+            var response = await client.PostAsJsonAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/GetByUsername", username);
 
             if (response.IsSuccessStatusCode)
             {
@@ -92,7 +92,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.PostAsJsonAsync("api/ComptesAPI/Login", model);
+            var response = await client.PostAsJsonAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/Login", model);
 
 
 
@@ -129,7 +129,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.GetAsync("api/ComptesAPI/GetByUsername/"+username);
+            var response = await client.GetAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/GetByUsername/" + username);
 
             if (response.IsSuccessStatusCode)
             {
@@ -146,7 +146,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.GetAsync("api/ComptesAPI/GetById/" + id);
+            var response = await client.GetAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/GetById/" + id);
 
             if (response.IsSuccessStatusCode)
             {
@@ -172,7 +172,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.PutAsJsonAsync("api/ComptesAPI/UpdateAccount", model);
+            var response = await client.PutAsJsonAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/UpdateAccount", model);
 
             if (response.IsSuccessStatusCode)
             {
@@ -187,7 +187,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.GetAsync("api/ComptesAPI/GetById/" + id);
+            var response = await client.GetAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/GetById/" + id);
 
             if (response.IsSuccessStatusCode)
             {
@@ -204,7 +204,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.GetAsync("api/ComptesAPI/GetById/" + model.Id);
+            var response = await client.GetAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/GetById/" + model.Id);
 
             if (response.IsSuccessStatusCode)
             {
@@ -216,7 +216,7 @@ namespace Comptes.Controllers
                 }
                 //client = _client.Initiale();
                 //client.DefaultRequestHeaders.Accept.Clear();
-                var responseDelete = await client.DeleteAsync("api/ComptesAPI/Delete/" + model.Id);
+                var responseDelete = await client.DeleteAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/Delete/" + model.Id);
                 if (responseDelete.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index");
@@ -232,7 +232,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.GetAsync("api/ComptesAPI/GetById/" + id);
+            var response = await client.GetAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/GetById/" + id);
 
             if (response.IsSuccessStatusCode)
             {
@@ -255,7 +255,7 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.GetAsync("api/ComptesAPI/GetById/" + model.Id);
+            var response = await client.GetAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/GetById/" + model.Id);
 
             if (response.IsSuccessStatusCode)
             {
@@ -270,7 +270,7 @@ namespace Comptes.Controllers
                     ConfirmPassword = model.ConfirmPassword,
                 };
 
-                var responseDelete = await client.PutAsJsonAsync("api/ComptesAPI/ResetPassword/" , account);
+                var responseDelete = await client.PutAsJsonAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/ResetPassword/", account);
                 if (responseDelete.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Detail", new { username = account.Username });
@@ -295,13 +295,19 @@ namespace Comptes.Controllers
         {
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.GetAsync("api/ComptesAPI/PasswordRecovery/" + acc.Username);
+            var response = await client.GetAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/PasswordRecovery/" + acc.Username);
 
             if (response.IsSuccessStatusCode)
             {
+                ViewBag.Error = "";
                 //var data = await response.Content.ReadAsStringAsync();
                 //var targetAccount = JsonConvert.DeserializeObject<Account>(data);
                 return RedirectToAction("PasswordRecoveryPage");
+            }
+            else if(response.StatusCode==System.Net.HttpStatusCode.BadRequest)
+            {
+                ViewBag.Error = "Invalid username";
+                return View();
             }
             return BadRequest();
             
@@ -319,13 +325,18 @@ namespace Comptes.Controllers
 
             HttpClient client = _client.Initiale();
             client.DefaultRequestHeaders.Accept.Clear();
-            var response = await client.PostAsJsonAsync("api/ComptesAPI/PasswordRecoveryPage", acc);
+            var response = await client.PostAsJsonAsync("https://comptes-api.azurewebsites.net/api/ComptesAPI/PasswordRecoveryPage", acc);
 
             if (response.IsSuccessStatusCode)
             {
                 //var data = await response.Content.ReadAsStringAsync();
                 //var targetAccount = JsonConvert.DeserializeObject<Account>(data);
                 return RedirectToAction("login");
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest || response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                ViewBag.Error = "Invalid Information";
+                return View();
             }
 
             return BadRequest();

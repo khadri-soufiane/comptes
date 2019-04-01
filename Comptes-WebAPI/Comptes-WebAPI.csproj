@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RootNamespace>Comptes_WebAPI</RootNamespace>
+    <UserSecretsId>2f1badd6-3b3d-4aaa-9ec0-431daed29675</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

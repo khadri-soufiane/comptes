@@ -41,7 +41,16 @@ namespace Comptes_WebAPI.Repository
         {
             if (_db != null)
             {
-                return await _db.Accounts.ToListAsync();
+                try
+                {
+                    return await _db.Accounts.ToListAsync();
+                }
+                catch (Exception ex)
+                {
+                    
+
+                }
+                
             }
 
             return null;

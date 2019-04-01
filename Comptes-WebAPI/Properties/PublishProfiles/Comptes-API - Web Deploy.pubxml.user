@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmfGDvV9sNEO0SDwmaUyVKwAAAAACAAAAAAAQZgAAAAEAACAAAABuAtXdNUleI35NlkU+HhUs3rDvggjEWZoXIn66SLZB+AAAAAAOgAAAAAIAACAAAAAEl7ufDGmoNXNiyCnRHHp6mS3DWA/t77Y7lMnMUJRRjIAAAAClcGTsCue79UN4CIn0zf5nMiDAsuC2Q9MDCClTweuzFctKM+c33jWtGXt0YcUH0KIOyIVD8nur96eubtVHBI4P0Bg7QWk1jxBrkmEeklCAlsZFWUpluYIrs3d1KFh5rEq30dYYkyFfMmH1lSFOe6ZurblcPJsJW6/VRcnCUc0EBEAAAADhfOF9GaXCYs1+vxPV8mBfMq9n+IcNLrQQ/00cqxgVbs9uNyehs6PN1nFhZPY9EmPtCYuh0lc+Bbefmi9rAtnf</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:comptes.database.windows.net,1433%3bInitial Catalog=Compte%3bUser Id=Soufiane%40comptes.database.windows.net%3bPassword=Kuky2018%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Comptes_WebAPI.Models.AccountContext">
+      <Value>Data Source=tcp:comptes.database.windows.net,1433%3bInitial Catalog=Compte%3bUser Id=Soufiane%40comptes.database.windows.net%3bPassword=Kuky2018%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

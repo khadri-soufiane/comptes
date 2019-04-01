@@ -28,7 +28,7 @@ namespace Comptes_WebAPI.Models
             {
                 var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
                 var configuration = builder.Build();
-                optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                optionsBuilder.UseSqlServer("Server=tcp:comptes.database.windows.net,1433;Initial Catalog=AccountManagement;Persist Security Info=False; User=Soufiane;Password=Kuky2018;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 

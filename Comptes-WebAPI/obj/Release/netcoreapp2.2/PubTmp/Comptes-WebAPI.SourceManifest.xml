@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Release\netcoreapp2.2\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\Soufiane\Desktop\Comptes\Comptes-WebAPI\obj\Release\netcoreapp2.2\PubTmp\EFSQLScripts\Comptes_WebAPI.Models.AccountContext.sql" />
+</sitemanifest>

@@ -11,7 +11,7 @@ namespace Comptes.Models
         public HttpClient Initiale()
         {
             var client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44392/");
+            client.BaseAddress = new Uri("https://comptes-api.azurewebsites.net/");
             return client;
         }
     }
